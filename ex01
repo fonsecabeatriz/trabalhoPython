@@ -1,0 +1,41 @@
+# print com o nome, exigência 1 de 6
+print("Olá. Seja bem-vindo(a) a loja de Ana Beatriz Fonseca!")
+print("--------------- Pagamento ---------------")
+#inputs, exigência 2 de 6
+valor_unitario = float (input("Digite o valor do produto: "))
+quantidade = int (input("Digite a quantidade do produto: "))
+
+valor_total_sem_desconto = valor_unitario * quantidade
+
+#implementando os descontos, exigência 3 de 6
+if valor_total_sem_desconto < 2500:
+    taxa_desconto = 0  # Sem desconto
+    valor_desconto = 0
+    desconto_formatado = "0%"
+elif valor_total_sem_desconto >= 2500 and valor_total_sem_desconto < 6000:
+    taxa_desconto = 0.04  # 4% de desconto
+    valor_desconto = valor_total_sem_desconto * taxa_desconto
+    desconto_formatado = "4%"
+elif valor_total_sem_desconto >= 6000 and valor_total_sem_desconto < 10000:
+    taxa_desconto = 0.07  # 7% de desconto
+    valor_desconto = valor_total_sem_desconto * taxa_desconto
+    desconto_formatado = "7%"
+else:
+    taxa_desconto = 0.11  # 11% de desconto
+    valor_desconto = valor_total_sem_desconto * taxa_desconto
+    desconto_formatado = "11%"
+
+# valor total com e sem desconto, exigência 4 de 6
+valor_total_com_desconto = valor_total_sem_desconto - valor_desconto
+
+print(f"\nO valor total sem desconto é de R${valor_total_sem_desconto:.2f}")
+
+# exigência 1 de 2 na saída
+if valor_total_sem_desconto >= 2500:
+    print("\nVocê tem direito a um desconto de", desconto_formatado, "!")
+    print(f"O valor total com desconto é de R${valor_total_com_desconto:.2f}")
+
+# exigência 2 de 2 na saída
+else:
+    print("\nInfelizmente, você não tem direito a desconto.")
+    print(f"O valor total com desconto é de R${valor_total_com_desconto:.2f} (sem desconto aplicado)")
